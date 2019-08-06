@@ -44,7 +44,6 @@ public class GoodsServiceImpl implements GoodsService {
 
         final CountDownLatch countDownLatch = new CountDownLatch(2);
         ExecutorService executorService = Executors.newFixedThreadPool(3);
-
         SpuBo spuBo = executorService.submit(() -> {
             countDownLatch.countDown();
             return this.goodsClient.queryGoodsById(spuId);

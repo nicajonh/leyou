@@ -7,12 +7,12 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/lyj8330328/leyou-config.git
+          uri: https://github.com/nicajonh/leyou-config
   rabbitmq:
-    host: 192.168.19.121
-    username: /leyou
-    password: leyou
-    virtual-host: /leyou
+    host: 99.6.118.187
+    username: ga
+    password: Gift@2018
+    virtual-host: /mytest
 
 
 management: #暴露触发消息总线的地址

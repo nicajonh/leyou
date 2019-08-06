@@ -73,7 +73,7 @@ public class JwtProperties {
     @PostConstruct
     public void init(){
         try {
-            // 获取公钥
+            // 获取公钥D:\documents\proj_config\keys
             this.publicKey = RsaUtils.getPublicKey(pubKeyPath);
         } catch (Exception e) {
             logger.error("获取公钥失败！", e);

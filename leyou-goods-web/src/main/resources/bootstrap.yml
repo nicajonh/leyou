@@ -1,7 +1,11 @@
+#spring:
+#  cloud:
+#    config:
+#      name: goodsweb
+#      profile: dev
+#      label: master
+#      uri: http://127.0.0.1:10011
+
 spring:
-  cloud:
-    config:
-      name: goodsweb
-      profile: dev
-      label: master
-      uri: http://127.0.0.1:10011
+  profiles:
+    active: local
