@@ -1,0 +1,20 @@
+RABBITMQ_HOST: 99.6.118.187
+server:
+  port: 8086
+  name: local
+spring:
+  application:
+    name: sms-service
+  rabbitmq:
+    virtual-host: /mytest
+    username: ga
+    password: Gift@2018
+    port: 5672
+    host: ${RABBITMQ_HOST:127.0.0.1}
+
+leyou:
+  sms:
+    accessKeyId: LTAIc259TULYzaS7
+    accessKeySecret: 1uh79I1UAmwQ4YWsSmOgxw7JEBGA0v
+    signName: 乐优商城
+    verifyCodeTemplate: SMS_148614415

@@ -48,7 +48,7 @@ public class UserTest {
     public void addAdmin(){
         User user = new User();
         user.setCreated(new Date());
-        user.setPhone("88888888");
+        user.setPhone("13547864879");
         user.setUsername("admin");
         user.setPassword("admin");
         String encodePassword = CodecUtils.passwordBcryptEncode(user.getUsername().trim(),user.getPassword().trim());
