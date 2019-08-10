@@ -1,4 +1,4 @@
-RABBITMQ_HOST: 99.6.118.187
+RABBITMQ_HOST: 127.0.0.1
 server:
   port: 8086
   name: local
@@ -7,8 +7,8 @@ spring:
     name: sms-service
   rabbitmq:
     virtual-host: /mytest
-    username: ga
-    password: Gift@2018
+    username: guest
+    password: guest
     port: 5672
     host: ${RABBITMQ_HOST:127.0.0.1}
 

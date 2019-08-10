@@ -22,7 +22,8 @@ public class GlobalCorsConfig {
         //config.addAllowedOrigin("*");
         config.addAllowedOrigin("http://manage.leyou.com");
         config.addAllowedOrigin("http://www.leyou.com");
-//        config.addAllowedOrigin("http://localhost:10010");
+        config.addAllowedOrigin("http://localhost:9001");
+        config.addAllowedOrigin("http://l27.0.0.1:9001");
         config.addAllowedOrigin("http://api.leyou.com");
         //2) 是否发送Cookie信息
         config.setAllowCredentials(true);

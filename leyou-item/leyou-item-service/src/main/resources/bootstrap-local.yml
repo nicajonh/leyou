@@ -1,6 +1,6 @@
-RABBITMQ_HOST: 99.6.118.187
-MYSQL_HOST: 99.6.118.187
-REDIS_HOST: 99.6.118.95
+RABBITMQ_HOST: 127.0.0.1
+MYSQL_HOST: 127.0.0.1
+REDIS_HOST: 127.0.0.1
 server:
   port: 8081
   name: local
@@ -8,9 +8,9 @@ spring:
   application:
     name: item-service
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:3306/myleyoutest?characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:3306/leyou?characterEncoding=UTF-8&useSSL=false
     username: root
-    password: 123456
+    password: 1234
     hikari:
       maximum-pool-size: 20
       minimum-idle: 10
@@ -18,8 +18,8 @@ spring:
     host: ${REDIS_HOST:127.0.0.1}
   rabbitmq:
     virtual-host: /mytest
-    username: ga
-    password: Gift@2018
+    username: guest
+    password: guest
     port: 5672
     host: ${RABBITMQ_HOST:127.0.0.1}
     template:

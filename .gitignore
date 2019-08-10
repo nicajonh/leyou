@@ -1,10 +1,10 @@
 */.DS_Store
 */target
 *.iml
-/.idea
 *.class
 target/
-.project
+.project/
+.idea/
 .settings/
 .classpath
 .DS_Store

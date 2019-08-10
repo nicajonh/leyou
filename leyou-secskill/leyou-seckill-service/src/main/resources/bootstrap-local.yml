@@ -1,7 +1,7 @@
-RABBITMQ_HOST: 99.6.118.187
-MYSQL_HOST: 99.6.118.187
-REDIS_HOST: 99.6.118.95
-ES_HOST: 192.168.19.121
+RABBITMQ_HOST: 127.0.0.1
+MYSQL_HOST: 127.0.0.1
+REDIS_HOST: 127.0.0.1
+ES_HOST: 127.0.0.1
 server:
   port: 8090
   name: local
@@ -15,7 +15,7 @@ spring:
       cluster-name: elasticsearch
       cluster-nodes: ${ES_HOST:127.0.0.1}:9300
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:3306/myleyoutest?characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:3306/leyou?characterEncoding=UTF-8&useSSL=false
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
@@ -24,10 +24,10 @@ spring:
       minimum-idle: 10
   rabbitmq:
     virtual-host: /mytest
-    username: ga
-    password: Gift@2018
+    username: guest
+    password: guest
     port: 5672
-    host: 99.6.118.187
+    host: ${RABBITMQ_HOST:127.0.0.1}
     template:
       exchange: leyou.order.exchange
     publisher-confirms: true

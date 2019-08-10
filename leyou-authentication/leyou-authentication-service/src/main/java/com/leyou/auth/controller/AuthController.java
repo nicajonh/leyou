@@ -5,6 +5,7 @@ import com.leyou.auth.properties.JwtProperties;
 import com.leyou.auth.service.AuthService;
 import com.leyou.auth.utils.JwtUtils;
 import com.leyou.utils.CookieUtils;
+import feign.Param;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -55,6 +56,8 @@ public class AuthController {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         //2.将token写入cookie，并指定httpOnly为true，防止通过js获取和修改
+        String url1 = request.getRequestURI();
+        String url2 = request.getServerName();
         CookieUtils.setCookie(request,response,properties.getCookieName(),token,properties.getCookieMaxAge(),true);
 
         return ResponseEntity.ok().build();
@@ -83,5 +86,6 @@ public class AuthController {
         //5.出现异常,相应401
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
+
 
 }

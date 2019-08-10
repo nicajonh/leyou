@@ -1,3 +1,4 @@
+RABBITMQ_HOST: 127.0.0.1
 server:
   port: 8082
   name: local
@@ -6,10 +7,10 @@ spring:
     name: upload-service
   rabbitmq:
     virtual-host: /mytest
-    username: ga
-    password: Gift@2018
+    username: guest
+    password: guest
     port: 5672
-    host: 99.6.118.187
+    host: ${RABBITMQ_HOST:127.0.0.1}
   servlet:
     multipart:
       max-file-size: 10MB # 限制文件上传的大小
@@ -17,12 +18,12 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://99.6.118.163:10086/eureka
+      defaultZone: http://127.0.0.1:10086/eureka
   instance:
     lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
     lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
     prefer-ip-address: true
-    ip-address: 99.6.118.163
+    ip-address: 127.0.0.1
     instance-id: ${spring.application.name}:${server.port}
 fdfs:
   so-timeout: 1501 #超时时间
