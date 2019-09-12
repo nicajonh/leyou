@@ -52,7 +52,7 @@ public interface GoodsApi {
      * @param id
      * @return
      */
-    @GetMapping("sku/list/{id}")
+    @GetMapping("/sku/list/{id}")
     List<Sku> querySkuBySpuId(@PathVariable("id") Long id);
 
     /**

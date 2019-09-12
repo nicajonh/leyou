@@ -1,5 +1,6 @@
 RABBITMQ_HOST: 127.0.0.1
 ES_HOST: 127.0.0.1
+ES_CLUSTER_NAME: my-cluster1
 server:
   port: 8083
   name: local
@@ -8,12 +9,15 @@ spring:
     name: search-service
   data:
     elasticsearch:
-      cluster-name: elasticsearch
-      cluster-nodes: ${ES_HOST:127.0.0.1}:9300
+      cluster-name: ${ES_CLUSTER_NAME:elasticsearch}
+      cluster-nodes: ${ES_HOST:127.0.0.1}
+      xpack-security: elastic:changeme
+      port: 9300
   rabbitmq:
     virtual-host: /mytest
     username: guest
     password: guest
+    port: 5672
     host: ${RABBITMQ_HOST:127.0.0.1}
   jackson:
     default-property-inclusion: non_null # 配置json处理时忽略空值
@@ -29,10 +33,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:10086/eureka
-    registry-fetch-interval-seconds: 5
+    registry-fetch-interval-seconds: 6
   instance:
     instance-id: ${spring.application.name}:${server.port}
     prefer-ip-address: true  #当你获取host时，返回的不是主机名，而是ip
     ip-address: 127.0.0.1
-    lease-expiration-duration-in-seconds: 10 #10秒不发送九过期
-    lease-renewal-interval-in-seconds: 5 #每隔5秒发一次心跳
+    lease-expiration-duration-in-seconds: 10 #10秒不发送就过期
+    lease-renewal-interval-in-seconds: 6 #每隔5秒发一次心跳

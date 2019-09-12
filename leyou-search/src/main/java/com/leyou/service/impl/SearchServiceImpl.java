@@ -98,12 +98,14 @@ public class SearchServiceImpl implements SearchService {
             skuMap.put("image", StringUtils.isBlank(sku.getImages()) ? "" : StringUtils.split(sku.getImages(),",")[0]);
             skuLists.add(skuMap);
         });
-
-        //提取公共属性
-        List<Map<String,Object>> genericSpecs = mapper.readValue(spuDetail.getSpecifications(),new TypeReference<List<Map<String,Object>>>(){});
-        //提取特有属性
-        Map<String,Object> specialSpecs = mapper.readValue(spuDetail.getSpecTemplate(),new TypeReference<Map<String,Object>>(){});
-
+        List<Map<String,Object>> genericSpecs=new ArrayList<>();
+        Map<String,Object> specialSpecs=new HashMap<>();
+        if(null!=spuDetail){
+            //提取公共属性
+           genericSpecs = mapper.readValue(spuDetail.getSpecifications(),new TypeReference<List<Map<String,Object>>>(){});
+            //提取特有属性
+           specialSpecs = mapper.readValue(spuDetail.getSpecTemplate(),new TypeReference<Map<String,Object>>(){});
+        }
         //过滤规格模板，把所有可搜索的信息保存到Map中
         Map<String,Object> specMap = new HashMap<>();
 

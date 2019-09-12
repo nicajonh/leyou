@@ -99,7 +99,7 @@ public class GoodsController{
      * @param id
      * @return
      */
-    @GetMapping("sku/list/{id}")
+    @GetMapping("/sku/list/{id}")
     public ResponseEntity<List<Sku>> querySkuBySpuId(@PathVariable("id") Long id){
         List<Sku> list = this.goodsService.querySkuBySpuId(id);
         if (list == null || list.size() < 1){

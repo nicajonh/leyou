@@ -29,7 +29,8 @@ import java.util.List;
  */
 @RestController
 @RequestMapping
-public class SearchController implements InitializingBean {
+public class SearchController{
+//public class SearchController implements InitializingBean {
 
     @Autowired
     private SearchServiceImpl searchService;
@@ -53,7 +54,6 @@ public class SearchController implements InitializingBean {
         }
     }
 
-    @Override
     public void afterPropertiesSet() throws Exception {
         // 创建索引
         this.elasticsearchTemplate.createIndex(Goods.class);

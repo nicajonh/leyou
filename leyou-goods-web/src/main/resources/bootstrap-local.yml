@@ -30,8 +30,8 @@ eureka:
     lease-renewal-interval-in-seconds: 5 #每隔5秒发一次心跳
 
 ribbon:
-  ConnectTimeout: 4000 # 连接超时时间(ms)
-  ReadTimeout: 2000 # 通信超时时间(ms)
+  ConnectTimeout: 60000 # 连接超时时间(ms)
+  ReadTimeout: 60000 # 通信超时时间(ms)
   OkToRetryOnAllOperations: true # 是否对所有操作重试
   MaxAutoRetriesNextServer: 1 # 同一服务不同实例的重试次数
   MaxAutoRetries: 1 # 同一实例的重试次数
@@ -41,4 +41,4 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMillisecond: 10000 # 熔断超时时长：10000ms
+            timeoutInMillisecond: 60000 # 熔断超时时长：10000ms

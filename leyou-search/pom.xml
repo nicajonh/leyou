@@ -11,6 +11,9 @@
 
     <groupId>com.leyou.search</groupId>
     <artifactId>leyou-search</artifactId>
+    <properties>
+        <elasticsearch.version>5.6.2</elasticsearch.version>
+    </properties>
 
     <dependencies>
         <!-- web -->
@@ -19,10 +22,27 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!-- elasticsearch -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-data-elasticsearch</artifactId>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.elasticsearch.client</groupId>
+                    <artifactId>transport</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>x-pack-transport</artifactId>
+            <version>5.6.2</version>
+        </dependency>
+
+        <!--这个好像要添加不然下载不到 spring-boot-starter-data-elasticsearch:6.4.0 -->
         <!-- eureka -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -102,5 +122,18 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <!-- add the elasticsearch repo for transport-client lib-->
+        <repository>
+            <id>elasticsearch-releases</id>
+            <url>https://artifacts.elastic.co/maven</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>
